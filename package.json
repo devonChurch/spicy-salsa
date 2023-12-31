@@ -1,0 +1,22 @@
+{
+  "name": "spicy-salsa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "wrangler r2 object put spicy-salsa/index.html --file=src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devonChurch/spicy-salsa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devonChurch/spicy-salsa/issues"
+  },
+  "homepage": "https://github.com/devonChurch/spicy-salsa#readme",
+  "devDependencies": {
+    "wrangler": "^3.22.1"
+  }
+}

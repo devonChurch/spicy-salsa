@@ -1,0 +1,34 @@
+<html>
+
+    <body>
+        <button id="error-range">Throw Range Error</button>
+        <button id="error-type">Throw Type Error</button>
+        <button id="error-async">Throw Async Error</button>
+
+        <script>
+            const catchAndLogError = (callback) => (...params) => {
+                try {
+                    callback(...params);
+                } catch (error) {
+                    // @todo Sentry integration.
+                    console.error(error)
+                }
+            }
+
+            document.body.querySelector("#error-range").addEventListener("click", catchAndLogError(() => {
+                throw new TypeError("size cannot be greater then 5");
+            }));
+
+            document.body.querySelector("#error-type").addEventListener("click", catchAndLogError(() => {
+                throw new TypeError("type string is not number");
+            }));
+
+            document.body.querySelector("#error-type").addEventListener("click", catchAndLogError(() => {
+                new Promise((_, reject) => setTimeout(() => {
+                    reject(new Error("403 response is unauthorised"));
+                }, 1000));
+            }));
+
+        </script>
+    </body>
+</html>
